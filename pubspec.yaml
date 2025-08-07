@@ -1,0 +1,82 @@
+name: car_safety_app
+description: אפליקציה למניעת שכחת ילדים ברכב
+
+# המספר הזה משתנה עם כל גרסה שמשחררים
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.0.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+
+  # ניהול מצב
+  provider: ^6.0.5
+  shared_preferences: ^2.2.0
+  
+  # שירותי מיקום וחיישנים
+  geolocator: ^10.0.0
+  geocoding: ^2.1.0
+  flutter_background_geolocation: ^4.11.1
+  sensors_plus: ^3.0.2
+  permission_handler: ^10.4.3
+  
+  # Bluetooth (Updated for compatibility - temporarily disabled)
+  # flutter_bluetooth_serial: ^0.4.0  # Commented out - causing build issues
+  # flutter_reactive_ble: ^5.2.0       # Commented out - causing build issues
+  
+  # התראות והודעות
+  flutter_local_notifications: ^15.1.0+1
+  flutter_background_service: ^5.0.5
+  flutter_background_service_android: ^6.2.3
+  background_fetch: ^1.2.0
+  # flutter_sms: ^2.3.3  # Temporarily disabled - build issues
+  flutter_contacts: ^1.1.7+1
+  
+  # עיצוב ו-UI
+  google_fonts: ^5.1.0
+  flutter_svg: ^2.0.7
+  lottie: ^2.6.0
+  flutter_spinkit: ^5.2.0
+  
+  # כלים ועזרים
+  intl: ^0.19.0
+  url_launcher: ^6.1.12
+  package_info_plus: ^4.1.0
+  device_info_plus: ^9.0.2
+  connectivity_plus: ^4.0.2
+  uuid: ^3.0.7
+  
+  # אנליטיקה וניטור (removed Firebase for iOS compatibility)
+  # firebase_core: ^2.15.0
+  # firebase_analytics: ^10.4.4
+  # firebase_crashlytics: ^3.3.4
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.2
+  flutter_launcher_icons: ^0.14.4
+  build_runner: ^2.4.6
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/
+
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/images/app_icon.png"
+  adaptive_icon_background: "#ffffff"
+  adaptive_icon_foreground: "assets/images/app_icon.png"
+
+# הגדרות נוספות עבור אנדרואיד כדי לאפשר פעולה ברקע
+android:
+  background_mode:
+    - location
+    - bluetooth
+    - audio
